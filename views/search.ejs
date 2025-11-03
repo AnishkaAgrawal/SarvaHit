@@ -1,0 +1,106 @@
+<%- include("./partials/head.ejs", { pageTitle: "Filter Crops | SarvaHit" }) %>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<body class="min-h-screen bg-gradient-to-br from-green-50 via-yellow-50 to-rose-50 text-gray-900 flex flex-col">
+  <%- include("./partials/nav2.ejs", { currentPage: "home" }) %>
+
+  <!-- Header -->
+  <header class="text-center mt-10 mb-6">
+    <h1 class="text-5xl font-extrabold text-green-800 mb-3 drop-shadow-sm">🌾 Filter Crops</h1>
+    <p class="text-gray-600 text-lg">Refine your search by state, trend, season, and grade</p>
+  </header>
+
+  <!-- Filter Form -->
+  <!-- CHANGED: method="GET" (not POST), so query params are visible and can be read in /crop route -->
+  <form action="/crop" method="POST" class="max-w-3xl mx-auto bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-gray-200">
+    
+    <!-- Filter Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- State -->
+      <div>
+        <label for="stateFilter" class="block text-lg font-semibold text-gray-800 mb-2">🏙 State</label>
+        <select 
+          id="stateFilter" 
+          name="state"
+          class="w-full p-3 rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-green-600 transition"
+        >
+          <option value="">All States</option>
+          <% 
+            const uniqueStates = [...new Set(crops.map(c => c.state))];
+            uniqueStates.forEach(state => { 
+          %>
+            <option value="<%= state %>"><%= state %></option>
+          <% }) %>
+        </select>
+      </div>
+
+      <!-- Trend -->
+      <div>
+        <label for="trendFilter" class="block text-lg font-semibold text-gray-800 mb-2">📈 Price Trend</label>
+        <select 
+          id="trendFilter" 
+          name="trend"
+          class="w-full p-3 rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-green-600 transition"
+        >
+          <option value="">All Trends</option>
+          <option value="Increasing">📈 Increasing</option>
+          <option value="Stable">⚖ Stable</option>
+          <option value="Decreasing">📉 Decreasing</option>
+        </select>
+      </div>
+
+      <!-- Season -->
+      <div>
+        <label for="seasonFilter" class="block text-lg font-semibold text-gray-800 mb-2">🌤 Season</label>
+        <select 
+          id="seasonFilter" 
+          name="season"
+          class="w-full p-3 rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-green-600 transition"
+        >
+          <option value="">All Seasons</option>
+          <option value="Rabi">Rabi</option>
+          <option value="Kharif">Kharif</option>
+          <option value="Zaid">Zaid</option>
+        </select>
+      </div>
+
+      <!-- Grade -->
+      <div>
+        <label for="gradeFilter" class="block text-lg font-semibold text-gray-800 mb-2">🏷 Grade</label>
+        <select 
+          id="gradeFilter" 
+          name="grade"
+          class="w-full p-3 rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-green-600 transition"
+        >
+          <option value="">All Grades</option>
+          <option value="A">Grade A</option>
+          <option value="B">Grade B</option>
+          <option value="C">Grade C</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Apply Button -->
+    <div class="text-center mt-10">
+      <button 
+        type="submit"
+        class="bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-3 rounded-xl shadow-md transition duration-200"
+      >
+        Apply Filters
+      </button>
+
+      <!-- Reset Button -->
+      <a 
+        href="/crop"
+        class="ml-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold px-6 py-3 rounded-xl transition"
+      >
+        Reset
+      </a>
+    </div>
+  </form>
+
+  <!-- Footer -->
+  <%- include("./partials/footer.ejs") %>
+</body>
+</html>

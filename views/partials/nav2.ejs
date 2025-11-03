@@ -1,0 +1,50 @@
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          soil: '#6B4226',
+          leaf: '#4CAF50',
+          wheat: '#F5DEB3',
+        },
+        fontFamily: {
+          agri: ['Merriweather', 'serif'],
+        },
+      }
+    }
+  }
+</script>
+
+<!-- Navigation Bar -->
+<nav class="flex flex-wrap justify-between items-center bg-leaf px-6 py-4 shadow-md rounded-lg font-agri text-wheat">
+  <!-- Left: Logo -->
+  <div class="flex items-center space-x-2">
+    <span class="text-2xl md:text-3xl font-bold tracking-wide">🌱 Crop Price Teller</span>
+  </div>
+
+  <!-- Center: Navigation Links -->
+  <div class="flex flex-wrap justify-center gap-4 mt-3 md:mt-0">
+    <a href="/"
+      class="text-white md:text-lg px-4 py-2 bg-soil rounded-md font-semibold transition duration-300 ease-in-out hover:bg-wheat hover:text-leaf <%= currentPage==='home' ? 'bg-wheat text-leaf shadow-md scale-105' : '' %>">
+      🏡 Home
+    </a>
+
+    <a href="/crop"
+      class="text-white md:text-lg px-4 py-2 bg-soil rounded-md font-semibold transition duration-300 ease-in-out hover:bg-wheat hover:text-leaf <%= currentPage==='crop' ? 'bg-wheat text-leaf shadow-md scale-105' : '' %>">
+      🌾 Crop Details
+    </a>
+
+    <a href="/about"
+      class="text-white md:text-lg px-4 py-2 bg-soil rounded-md font-semibold transition duration-300 ease-in-out hover:bg-wheat hover:text-leaf <%= currentPage==='about' ? 'bg-wheat text-leaf shadow-md scale-105' : '' %>">
+       About Us
+    </a>
+
+  </div>
+
+  
+
+ 
+
+</nav>

@@ -1,0 +1,52 @@
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          soil: '#6B4226',
+          leaf: '#4CAF50',
+          wheat: '#F5DEB3',
+        },
+        fontFamily: {
+          agri: ['Merriweather', 'serif'],
+        },
+      }
+    }
+  }
+</script>
+
+<!-- Footer -->
+<footer class="flex flex-col items-center p-6 m-2 bg-leaf text-black font-agri rounded-lg shadow-xl text-lg">
+  <div class="w-full text-center mb-4">
+    <h2 class="text-3xl font-bold mb-2">🌿 SarvaHit — Rooted in Comfort</h2>
+    <p class="text-sm opacity-90">Find farm stays, eco-lodges, and host your harvest haven.</p>
+  </div>
+
+  <div class="flex flex-wrap justify-center w-full mt-2">
+    <a href="/crop"
+      class="mx-2 my-2 px-4 py-2 bg-soil text-white rounded-md hover:bg-wheat hover:text-soil transition duration-300 ease-in-out hover:scale-105 hover:shadow-md">
+      🌾 crops
+    </a>
+
+   
+
+    <a href="/"
+      class="mx-2 my-2 px-4 py-2 bg-soil text-white rounded-md hover:bg-wheat hover:text-soil transition duration-300 ease-in-out hover:scale-105 hover:shadow-md">
+      🏡 Home
+    </a>
+    <a href="/about"
+    class="mx-2 my-2 px-4 py-2 bg-soil text-white rounded-md hover:bg-wheat hover:text-soil transition duration-300 ease-in-out hover:scale-105 hover:shadow-md">
+    ℹ️ About
+  </a>
+  </div>
+
+  <div class="w-full text-center mt-6 border-t border-wheat pt-3 text-sm opacity-80">
+    © <span id="year"></span> AgriStay. All Rights Reserved.
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</footer>

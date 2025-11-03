@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us</title>
+  <!-- Tailwind CDN -->
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            soil: '#6B4226',
+            leaf: '#4CAF50',
+            wheat: '#F5DEB3',
+          },
+          fontFamily: {
+            agri: ['Merriweather', 'serif'],
+          },
+        }
+      }
+    }
+  </script>
+     
+</head>
+<body class="bg-brown font-agri text-soil">
+  <%- include("./partials/nav2.ejs",{currentPage:"about"})%>
+
+  <!-- Header -->
+  <header class="bg-leaf text-white p-6 shadow-md">
+    <h1 class="text-3xl font-bold text-center">🌾 About SarvaHit</h1>
+    <p class="text-center text-sm mt-3">Where Ancient Wisdom meets the Harvest.</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto p-6">
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Our Story</h2>
+      <p class="text-lg leading-relaxed"> SarvaHit connects urban India with rural heartlands.We empower farmers through technology while creating authentic experiences that support local communities directly.
+      
+      </p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">What We Offer</h2>
+      <ul class="list-disc list-inside text-lg space-y-2">
+        <li>🌿 Farm stays and eco-lodges across India</li>
+        <li>🚜 Authentic agricultural experiences for guests</li>
+        <li>🏡 A platform for farmers and rural hosts to share their homes</li>
+        <li>🌱 Sustainable tourism that supports local communities</li>
+      </ul>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Our Mission</h2>
+      <p class="text-lg leading-relaxed">   SarvaHit was born from the ancient wisdom for the benefit of all. We are bridging the gap between our farmers and technology, creating a new wave of prosperity that cannot be stopped.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">Meet the Team</h2>
+      <p class="text-lg leading-relaxed">
+        We’re a passionate group of farmers, designers, and dreamers who believe in the power of nature to heal, inspire, and bring people together.
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-leaf text-wheat p-6 mt-10 text-center text-sm border-t border-wheat">
+    © <span id="year"></span> Sarvahit. All Rights Reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
